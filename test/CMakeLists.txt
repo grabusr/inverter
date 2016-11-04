@@ -13,3 +13,4 @@ AUX_SOURCE_DIRECTORY("." SOURCE_FILES)
 add_executable(InverterTest ${SOURCE_FILES})
 
 target_link_libraries(InverterTest gmock gmock_main)
+target_link_libraries(InverterTest InverterLib)
