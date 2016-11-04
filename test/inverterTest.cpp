@@ -1,4 +1,4 @@
-#include <inverter.h>
+#include "../prodCode/inverter.h"
 
 #include <gtest/gtest.h>
 #include <gmock/gmock.h>
