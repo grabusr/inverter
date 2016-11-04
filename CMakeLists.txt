@@ -1,7 +1,19 @@
 cmake_minimum_required(VERSION 3.6)
-project(IntiveTest)
+project(IntiveTestAll)
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
+add_subdirectory(lib)
+add_subdirectory(test)
+add_subdirectory(prodCode)
 
-set(SOURCE_FILES main.cpp)
-add_executable(IntiveTest ${SOURCE_FILES})
+aux_source_directory("." SOURCE_FILES)
+
+add_executable(InverterUse ${SOURCE_FILES})
+
+target_link_libraries(InverterUse InverterLib)
+
+# added running test in compile time
+add_custom_target(RunningTest
+        COMMAND InverterTest
+        COMMENT "Running Unit Test...")
+
+add_dependencies(InverterUse RunningTest)
